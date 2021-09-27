@@ -33,7 +33,7 @@ export const App = () => {
     const divContCardFront = document.createElement ('div');
     divContCardFront.className= `divImgCardFront ${tarjeta.id}`;
     divContCardFront.dataset.id = tarjeta.id;
-    console.log('debug 1', tarjeta)
+    //console.log('debug 1', tarjeta)
     const imgPokemonFront = document.createElement('img');   
     imgPokemonFront.src=tarjeta.image;
     imgPokemonFront.className="front";
@@ -58,7 +58,7 @@ export const App = () => {
     //selecciòn de tarjetas
     divContCardFront.addEventListener('click', conteo);    
     function conteo(e){
-      console.log('debug 2' , e.currentTarget);
+      //console.log('debug 2' , e.currentTarget);
       //console.log('clicked');
       const eCurtTarg=e.currentTarget;
       const id = eCurtTarg.dataset.id; 
@@ -71,8 +71,8 @@ export const App = () => {
       if(firstSelection !== null) {
         secondSelection = id
        
-        console.log('debug 3', firstSelection);
-        console.log('debug 4', secondSelection);
+        //console.log('debug 3', firstSelection);
+        //console.log('debug 4', secondSelection);
         // comparar valores (condicional )
         if (firstSelection === secondSelection) {
           alert('¡¡¡si son iguales!!!')
@@ -80,10 +80,10 @@ export const App = () => {
           const cardOfSelection2 = document.querySelectorAll(`.${secondSelection}`)[1]
           cardOfSelection.style.pointerEvents = "none";
           cardOfSelection2.style.pointerEvents = "none";
-          console.log('debug 6', cardOfSelection);
+          //console.log('debug 6', cardOfSelection);
           //sume puntos
           score++
-          console.log('debug 5', score);
+          //console.log('debug 5', score);
           scoreCard.innerHTML = `score: ${score}`; //generar conteo
         }
         
@@ -103,12 +103,10 @@ function myFunction(event) {
   console.log(event)
 }*/
 
-resetGame.addEventListener('click', reset);
-function reset(e) {
-  console.log('clicked')
-  e.preventDefault();
-  location.reload(); 
-}
+resetGame.addEventListener('click', _ => { // el _ es para indicar la ausencia de parametros
+  location.reload();
+  //carga de nuevo la url 
+});
 
 
 export function random (array) {
